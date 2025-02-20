@@ -1,8 +1,11 @@
 from flask import Flask, redirect, request, session, url_for
 from frontend.controllers.routes import app_route
 from dotenv import load_dotenv
+from flask_cors import CORS
 from flask import Flask
 import os
+
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 load_dotenv()
 
@@ -13,8 +16,8 @@ port = os.getenv('ALLOWED_PORT')
 
 # Создаём Flask-приложение
 app = Flask(__name__)
+CORS(app)
 app.secret_key = os.getenv("SECRET_KEY")
-
 # Настройка сессии
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"

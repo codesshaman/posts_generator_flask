@@ -6,8 +6,6 @@ load_dotenv()
 
 VK_CLIENT_ID = os.getenv("VK_APP_ID")
 VK_REDIRECT_URI = os.getenv("VK_REDIRECT_URL")
-print(VK_CLIENT_ID)
-print(VK_REDIRECT_URI)
 
 
 # Функция авторизации через VK
