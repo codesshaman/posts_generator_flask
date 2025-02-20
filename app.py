@@ -11,6 +11,8 @@ load_dotenv()
 
 host = os.getenv('ALLOWED_HOST')
 port = os.getenv('ALLOWED_PORT')
+cert = os.getenv('SSL_CERT')
+key  = os.getenv('SSL_KEY')
 # secret_key = os.getenv('SECRET_KEY')
 
 
@@ -26,4 +28,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.register_blueprint(app_route)
 
 if __name__ == "__main__":
-    app.run(host='192.168.1.135', port='1024')
+    app.run(
+        host=host,
+        port=port,
+        ssl_context=(cert, key)
+    )

@@ -31,6 +31,10 @@ app:
 		echo "$(ERROR_COLOR)Enter the name of the application!$(NO_COLOR)\n"; \
 	fi
 
+certs:
+	@echo "Запускаем certs.sh..."
+	@bash scripts/certs.sh
+
 env:
 	@printf "$(ERROR_COLOR)==== Create environment file for ${name}... ====$(NO_COLOR)\n"
 	@if [ -f .env ]; then \
@@ -52,6 +56,7 @@ h:help
 help:
 	@echo -e "$(OK_COLOR)==== All commands of ${name} configuration ====$(NO_COLOR)"
 	@echo -e "$(WARN_COLOR)- make app <appname>			: Create new application"
+	@echo -e "$(WARN_COLOR)- make cert		 		: Generate certificates"
 	@echo -e "$(WARN_COLOR)- make freeze		        	: Pip freeze command"
 	@echo -e "$(WARN_COLOR)- make git                              : Set user and mail for git"
 	@echo -e "$(WARN_COLOR)- make				        : Launch configuration"
@@ -141,5 +146,5 @@ fclean: clean
 	@printf "$(ERROR_COLOR)==== Cleaning configuration ${name}... ====$(NO_COLOR)\n"
 	@rm -rf ${VENV}
 
-.PHONY	: all app freeze h help install make migrate req root static venv vexit clean fclean
+.PHONY	: all app certs freeze h help install make migrate req root static venv vexit clean fclean
 
