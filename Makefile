@@ -48,10 +48,14 @@ freeze:
 	@$(PIP) freeze
 
 git:
-	@printf "$(YELLOW)==== Set user name and email to git for ${name} repo... ====$(NO_COLOR)\n"
+	@printf "$(WARN_COLOR)==== Set user name and email to git for ${name} repo... ====$(NO_COLOR)\n"
 	@bash scripts/gituser.sh
 
 h:help
+
+hash:
+	@printf "$(WARN_COLOR)==== Generate secrete key hash... ====$(NO_COLOR)\n"
+	@python3 scripts/hash
 
 help:
 	@echo -e "$(OK_COLOR)==== All commands of ${name} configuration ====$(NO_COLOR)"
@@ -61,6 +65,7 @@ help:
 	@echo -e "$(WARN_COLOR)- make git                              : Set user and mail for git"
 	@echo -e "$(WARN_COLOR)- make				        : Launch configuration"
 	@echo -e "$(WARN_COLOR)- make h				: Makefile commands reference"
+	@echo -e "$(WARN_COLOR)- make hash				: Generate hash for secret key"
 	@echo -e "$(WARN_COLOR)- make help				: Makefile commands reference"
 	@echo -e "$(WARN_COLOR)- make install <libname>		: Launch pip install"
 	@echo -e "$(WARN_COLOR)- make make				: Make makemigrations"

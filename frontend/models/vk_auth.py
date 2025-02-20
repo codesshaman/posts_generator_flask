@@ -7,7 +7,6 @@ load_dotenv()
 VK_CLIENT_ID = os.getenv("VK_APP_ID")
 VK_REDIRECT_URI = os.getenv("VK_REDIRECT_URL")
 
-
 # Функция авторизации через VK
 def make_vk_session(token=None):
     
