@@ -5,7 +5,7 @@ from flask_cors import CORS
 from flask import Flask
 import os
 
-os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+# os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 load_dotenv()
 

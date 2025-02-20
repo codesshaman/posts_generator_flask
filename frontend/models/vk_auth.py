@@ -15,4 +15,5 @@ def make_vk_session(token=None):
         client_id=VK_CLIENT_ID,
         redirect_uri=VK_REDIRECT_URI,
         token=token,
+        scope=["email", "profile"]
     )

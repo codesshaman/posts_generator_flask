@@ -40,14 +40,18 @@ def login():
 # Маршрут для обработки ответа от VK
 @app_route.route("/callback")
 def callback():
-    vk = make_vk_session()
-    token = vk.fetch_token(
-        VK_TOKEN_URL,
-        client_secret=VK_CLIENT_SECRET,
-        authorization_response=request.url,
-    )
-    session["oauth_token"] = token
-    return redirect(url_for("profile"))
+    try:
+        vk = make_vk_session()
+        token = vk.fetch_token(
+            VK_TOKEN_URL,
+            client_secret=VK_CLIENT_SECRET,
+            authorization_response=request.url,
+        )
+        print(token)
+        session["oauth_token"] = token
+        return redirect(url_for("profile"))
+    except Exception as e:
+        return f"Error: {e}", 500
 
 # Страница профиля пользователя
 @app_route.route("/profile")
