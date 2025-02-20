@@ -15,7 +15,7 @@ WARN_COLOR=\033[33;01m	# Warning yellow
 
 all:
 	@printf "$(OK_COLOR)==== Starting the configuration ${name} ====$(NO_COLOR)\n"
-	$(PYTHON) app.py
+	$(PYTHON) app.py 
 
 app:
 	@printf "$(OK_COLOR)==== Creating a new application ====$(NO_COLOR)\n"
