@@ -10,9 +10,14 @@ import os
 load_dotenv()
 
 host = os.getenv('ALLOWED_HOST')
+print(host)
 port = os.getenv('ALLOWED_PORT')
+print(port)
 cert = os.getenv('SSL_CERT')
+print(cert)
 key  = os.getenv('SSL_KEY')
+print(key)
+
 # secret_key = os.getenv('SECRET_KEY')
 
 
